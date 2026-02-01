@@ -39,9 +39,9 @@ function randomNumber(min = 0, max = 5000): number {
   return Math.floor((Math.random() * max) + min)
 }
 
-// Predicate: randomly decide if we want to take a plate (40% chance)
+// Predicate: randomly decide if we want to take a plate (60% chance)
 export function iWantThis(plate: Plate): boolean {
-  const want = Math.random() > 0.6;
+  const want = Math.random() > 0.4;
   if (want) { console.log('🤩 DAS WILL ICH! Teller ' + plate.id) }
 
   return want;
