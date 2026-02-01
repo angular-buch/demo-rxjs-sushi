@@ -45,10 +45,10 @@ export type { PlateVisualState };
 
 export const UI_CONFIG = {
   // Animation
-  BELT_ANIMATION_DURATION: 8000,  // ms für komplette Durchfahrt
+  BELT_ANIMATION_DURATION: 16000,  // ms für komplette Durchfahrt (langsamer)
   PLATE_SPAWN_POSITION: -150,     // px vom linken Rand
   TABLE_ANIMATION_DURATION: 500,  // ms für Animation zum Tisch
-  SELECTION_DELAY: 800,           // ms Verzögerung bevor Teller zum Tisch wandert (10% der Band-Animation)
+  SELECTION_DELAY: 1600,           // ms Verzögerung bevor Teller zum Tisch wandert (10% der Band-Animation)
 
   // Log
   MAX_LOG_ENTRIES: 50,

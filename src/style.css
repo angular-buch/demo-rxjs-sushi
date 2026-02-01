@@ -190,7 +190,7 @@ p code {
    Animates from left to right
    ============================================ */
 .plate-visual.animate {
-  animation: plateSlideAcross 8s linear forwards;
+  animation: plateSlideAcross 16s linear forwards;
 }
 
 @keyframes plateSlideAcross {
@@ -213,7 +213,7 @@ p code {
     0 0 40px rgba(78, 205, 196, 0.4),
     0 4px 12px rgba(0, 0, 0, 0.3),
     inset 0 -2px 4px rgba(0, 0, 0, 0.1);
-  animation: plateSlideAcross 8s linear forwards, selectedPulse 1s ease-in-out infinite;
+  animation: plateSlideAcross 16s linear forwards, selectedPulse 1s ease-in-out infinite;
 }
 
 @keyframes selectedPulse {
