@@ -8,10 +8,15 @@
 <body>
   <h1>🍣 Sushi mit RxJS</h1>
 
-  <p>Lass uns Sushi essen! <strong>Öffne die Konsole, um die Streams zu sehen.</strong> Du kannst den Flattening-Operator in der <code>index.ts</code> ändern, um verschiedene Strategien auszuprobieren!</p>
+  <p>Lass uns Sushi essen! Du kannst den Flattening-Operator in der <code>index.ts</code> ändern, um verschiedene Strategien auszuprobieren!</p>
 
-  <button id="startBtn" type="button">Starten</button>
-  <button id="stopBtn" type="button">Stoppen</button>
+  <div class="button-container">
+    <button id="startBtn" type="button">Starten</button>
+    <button id="stopBtn" type="button">Stoppen</button>
+  </div>
+
+  <!-- UI Container wird von initUI() in ui.ts erstellt und hier eingefügt -->
+  <div id="sushi-ui-placeholder"></div>
 
   <script type="module" src="./index.ts"></script>
 </body>
