@@ -1,9 +1,9 @@
 import './style.css';
-import { Observable, Subject } from 'rxjs';
-import { filter, concatMap, mergeMap, switchMap, exhaustMap, withLatestFrom, takeUntil, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { filter, concatMap, mergeMap, switchMap, exhaustMap, withLatestFrom, tap } from 'rxjs/operators';
 
 import { SushiWithSoja, sushiBelt$, soja$, iWantThis, getSushiFromPlate } from './helpers'
-import { initUI, onPlateAppear, onPlateSelected, onSushiConsumed, onStart, onStop } from './ui'
+import { initUI, onPlateAppear, onPlateSelected, onSushiConsumed, onStart } from './ui'
 
 // Initialize UI on load
 initUI();
@@ -18,22 +18,11 @@ const sushi$: Observable<SushiWithSoja> = sushiBelt$.pipe(
   ))
 );
 
-// Subject to signal stream termination
-const stop$ = new Subject<void>();
+// Auto-start on page load
+onStart();
 
-document.getElementById('stopBtn')?.addEventListener('click', () => {
-  stop$.next();
-  onStop();
-});
+// Log all plates from the belt
+sushiBelt$.subscribe(plate => onPlateAppear(plate));
 
-document.getElementById('startBtn')?.addEventListener('click', () => {
-  onStart();
-
-  // Log all plates from the belt
-  sushiBelt$.pipe(takeUntil(stop$))
-    .subscribe(plate => onPlateAppear(plate))
-
-  // Log consumed sushi with soy sauce
-  sushi$.pipe(takeUntil(stop$))
-    .subscribe(sushi => onSushiConsumed(sushi));
-});
+// Log consumed sushi with soy sauce
+sushi$.subscribe(sushi => onSushiConsumed(sushi));

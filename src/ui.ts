@@ -143,10 +143,11 @@ export function initUI(): void {
   sushiApp.appendChild(tableArea);  // Table Area zwischen Belt und Bottom Section
   sushiApp.appendChild(bottomSection);
 
-  // In das bestehende HTML einfügen (nach dem Button-Container)
-  const buttonContainer = document.querySelector('.button-container');
-  if (buttonContainer && buttonContainer.parentNode) {
-    buttonContainer.parentNode.insertBefore(sushiApp, buttonContainer.nextSibling);
+  // In das bestehende HTML einfügen (nach dem Placeholder oder Paragraph)
+  const placeholder = document.getElementById('sushi-ui-placeholder');
+  if (placeholder && placeholder.parentNode) {
+    placeholder.parentNode.insertBefore(sushiApp, placeholder);
+    placeholder.remove();
   } else {
     // Fallback: Am Ende des Body einfügen
     document.body.appendChild(sushiApp);
